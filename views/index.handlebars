@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <section>
+        <div class="row">
+            <div class="title offset-3 col-6 offset-md-3 col-md-6 offset-lg-3 col-lg-6">
+                {{!-- <h1>Eat Da Burger</h1> --}}
+            </div>
+        </div>
+    </section>
+</div>
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="newBurger">
+                        <h3>Choose your meal!</h3>
+                    </label>
+                    <input type="text" class="form-control" id="newBurgerName" name="newBurger">
+                </div>
+                <button type="submit" class="btn btn-primary">Order</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
+            <h4>-Open Orders-</h4>
+            <ol>
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burger/button-block hungry=true}}
+                {{/unless}}
+                {{/each}}
+            </ol>
+        </div>
+        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <h4>-Completed Orders-</h4>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burger/devoured-block hungry=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WhataBurger App</title>
+    <!-- Styling Links: Bulma & Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1a3736a1bc.js"></script>
+    <!-- JQuery and CSS file scripts -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <!-- JQuery and CSS file scripts -->
+    <script type="text/javascript" src="/../burger2/public/assets/js/burgers.js"></script>
+</head>
+
+<body>
+    {{{ body }}}
+</body>
+
+</html>
